@@ -1,6 +1,6 @@
 baseURL = 'http://csierniid.github.io/'
 languageCode = 'ja'
-title = '練習'
+title = 'COVID-19疫学研究'
 contentDir = 'post'
 disableKinds = ["RSS", "sitemap"]
 theme = "ananke"
