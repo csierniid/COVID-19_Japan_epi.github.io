@@ -1,0 +1,10 @@
+baseURL = 'http://csierniid.github.io/'
+languageCode = 'ja'
+title = '練習'
+contentDir = 'post'
+disableKinds = ["RSS", "sitemap"]
+theme = "ananke"
+publishDir = "docs" 
+[taxonomies]
+tag = "tags"
+
