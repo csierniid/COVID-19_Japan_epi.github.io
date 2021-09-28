@@ -5,8 +5,10 @@ navbar:
     - text: "Home"
       href: index.html
   right:
-    - text: "研究"
+    - text: "実効再生産数"
       href: kani_epi.html
+    - text: "ワクチン効果"
+      href: ve_test_negative.html
 output:
   html_document:
     theme: cosmo
