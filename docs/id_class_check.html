@@ -11,7 +11,7 @@
 
 
 
-<title>トップページ名</title>
+<title>セレクタの確認用</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -385,29 +385,218 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">トップページ名</h1>
+<h1 class="title toc-ignore">セレクタの確認用</h1>
 
 </div>
 
 
-<div id="index" class="section level2">
-<h2>index</h2>
-<div id="さんぷる" class="section level3">
-<h3>さんぷる</h3>
+<p>ということで，セレクタの確認するため一通り試してみる</p>
+<div id="見出し1" class="section level1">
+<h1>見出し1</h1>
+<div id="見出し2" class="section level2">
+<h2>見出し2</h2>
+<div id="見出し3" class="section level3">
+<h3>見出し3</h3>
+<div id="見出し4" class="section level4">
+<h4>見出し4</h4>
+<div id="見出し5" class="section level5">
+<h5>見出し5</h5>
+<div id="見出し6" class="section level6">
+<h6>見出し6</h6>
+<p>イタリックのテストします。<em>ひとつめ</em>。<em>ふたつめ</em>。</p>
+<p>ボールドのテストします。<strong>ひとつめ</strong>。<strong>ふたつめ</strong>。</p>
 <ul>
-<li>ほげ</li>
-<li>ふが</li>
+<li>番号なしリスト1
+<ul>
+<li>番号なしリスト1-1</li>
+<li>番号なしリスト1-2</li>
+</ul></li>
+<li>番号なしリスト2</li>
+<li>番号なしリスト3
+<ul>
+<li>番号なしリスト3-1</li>
+</ul></li>
 </ul>
+<ol style="list-style-type: decimal">
+<li>番号リスト1
+<ol style="list-style-type: decimal">
+<li>番号リスト下1-1</li>
+<li>番号リスト下1-2</li>
+</ol></li>
+<li>番号リスト2</li>
+<li>番号リスト3
+<ol style="list-style-type: decimal">
+<li>番号リスト下3-1</li>
+</ol></li>
+</ol>
+<dl>
+<dt>定義リスト1</dt>
+<dd><p>定義リスト1の中身</p>
+</dd>
+<dt>定義リスト2</dt>
+<dd><p>定義リスト2の中身</p>
+</dd>
+</dl>
+<p><a href="https://kazutan.github.io/kazutanR/">リンク文字</a></p>
+<p><a href="https://kazutan.github.io/kazutanR/" class="uri">https://kazutan.github.io/kazutanR/</a></p>
+<p><img src="pics/user.png" /></p>
+<p>引用のテスト</p>
+<blockquote>
+<p>Why are you using SJIS?</p>
+</blockquote>
+<p>コードブロックのテスト。</p>
+<pre><code>&gt; 1 + 1</code></pre>
+<p>インライン用に<code>1+1</code>してみる。</p>
+<p>数式:</p>
+<p><span class="math display">\[
+y = x_1 + x_2
+\]</span></p>
+<p>インライン数式用に<span class="math inline">\(\mu = 3.44\)</span>してみる。</p>
+<p>水平線・ページブレイク</p>
+<hr />
+<p>Markdownの表</p>
+<table>
+<thead>
+<tr class="header">
+<th>ほげ</th>
+<th>ふが</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ほげほげ1</td>
+<td>ふがふが1</td>
+</tr>
+<tr class="even">
+<td>ほげほげ2</td>
+<td>ふがふが2</td>
+</tr>
+</tbody>
+</table>
+<p>Rチャンクのテスト。まずは通常の。</p>
+<pre class="r"><code>head(iris)</code></pre>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="right">Sepal.Length</th>
+<th align="right">Sepal.Width</th>
+<th align="right">Petal.Length</th>
+<th align="right">Petal.Width</th>
+<th align="left">Species</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.7</td>
+<td align="right">3.2</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.6</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="right">3.6</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.7</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="さんぷるさんぷる" class="section level3">
-<h3>さんぷるさんぷる</h3>
-<p>あめんぼあかいなあいうえお。あめんぼあかいなあいうえお。あああああああああああああああああああああああああああああ。</p>
-<p>あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ。</p>
+<p>次は<code>knitr::kable()</code>。</p>
+<pre class="r"><code>knitr::kable(head(iris))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Sepal.Length</th>
+<th align="right">Sepal.Width</th>
+<th align="right">Petal.Length</th>
+<th align="right">Petal.Width</th>
+<th align="left">Species</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.7</td>
+<td align="right">3.2</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.6</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="right">3.6</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.7</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+</tbody>
+</table>
+<p>plotのテスト。</p>
+<pre class="r"><code>plot(1:10)</code></pre>
+<p><img src="id_class_check_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 </div>
-<div id="ふがふが" class="section level2">
-<h2>ふがふが</h2>
-<p>ああああああああああああああああああああああああああああああああああ。あああああああああああああああああああ</p>
+</div>
+</div>
+</div>
 </div>
 
 <footer>

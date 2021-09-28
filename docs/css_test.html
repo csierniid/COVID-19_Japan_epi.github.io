@@ -11,7 +11,7 @@
 
 
 
-<title>トップページ名</title>
+<title>cssの優先度テスト</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,9 +19,6 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -83,6 +80,7 @@ h6 {
 </style>
 
 <link rel="stylesheet" href="site_style.css" type="text/css" />
+<link rel="stylesheet" href="a_style.css" type="text/css" />
 
 
 
@@ -263,69 +261,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -333,16 +268,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -385,29 +310,80 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">トップページ名</h1>
+<h1 class="title toc-ignore">cssの優先度テスト</h1>
 
 </div>
 
 
-<div id="index" class="section level2">
-<h2>index</h2>
-<div id="さんぷる" class="section level3">
-<h3>さんぷる</h3>
-<ul>
-<li>ほげ</li>
-<li>ふが</li>
-</ul>
+<pre class="css"><code>h3 {
+  color: #f30;
+  margin-top: 20px;
+  padding-top: 15px;
+}</code></pre>
+<style type="text/css">
+h3 {
+  color: #f30;
+  margin-top: 20px;
+  padding-top: 15px;
+}
+</style>
+<p>今回，yamlフロントマターを以下のように指定しています:</p>
+<pre><code>---
+title: cssの優先度テスト
+output:
+  html_document:
+    toc: false
+    css:
+      - site_style.css
+      - a_style.css
+---</code></pre>
+<p>ここでcssを二つ指定していますが，<strong>個別ページでcssを設定した場合<code>_site.yml</code>で指定したcssと差し替えるためです</strong>。今回は指定順もチェックするために2つ指定しています。</p>
+<p>3つの見出し要素でテストします。</p>
+<p>まず，サイト全体設定として使っていた<code>site_style.css</code>では，以下のように指定:</p>
+<pre><code>h1 {
+  color: #006;
+}
+h2 {
+  color: #039;
+  border-bottom: 1px solid #039;
+  margin-top: 35px;
+  padding-top: 20px;
+}
+h3 {
+  color: #03f;
+  margin-top: 20px;
+  padding-top: 15px;
+}
+</code></pre>
+<p>次に，このページ用に<code>a_style.css</code>を以下のように準備して，このRmdのYAMLフロントマターで読み込ませる:</p>
+<pre><code>h2 {
+  color: #093;
+  border-bottom: 1px solid #039;
+  margin-top: 35px;
+  padding-top: 20px;
+}
+h3 {
+  color: #0f3;
+  margin-top: 20px;
+  padding-top: 15px;
+}</code></pre>
+<p>最後に，cssチャンクを準備して以下のように指定:</p>
+<pre class="{css}"><code>h3 {
+  color: #f30;
+  margin-top: 20px;
+  padding-top: 15px;
+}</code></pre>
+<div id="h1要素" class="section level1">
+<h1>h1要素</h1>
+<p>ここでは競合がないため，サイト全体設定の<code>site_style.css</code>の分が当たります。</p>
+<div id="h2要素" class="section level2">
+<h2>h2要素</h2>
+<p>ここでは最初に指定した<code>site_style.css</code>とその後に指定した<code>a_style.css</code>が競合しますが，<strong>後から指定した方が優先して当たります</strong>。</p>
+<div id="h3要素" class="section level3">
+<h3>h3要素</h3>
+<p>ここではサイト全体設定の<code>site_style.css</code>とこのページで指定した<code>a_style.css</code>，そしてcssチャンクで指定したものが競合しますが，<strong>cssチャンクで指定したものが当たります</strong>。</p>
 </div>
-<div id="さんぷるさんぷる" class="section level3">
-<h3>さんぷるさんぷる</h3>
-<p>あめんぼあかいなあいうえお。あめんぼあかいなあいうえお。あああああああああああああああああああああああああああああ。</p>
-<p>あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ。</p>
 </div>
-</div>
-<div id="ふがふが" class="section level2">
-<h2>ふがふが</h2>
-<p>ああああああああああああああああああああああああああああああああああ。あああああああああああああああああああ</p>
 </div>
 
 <footer>
@@ -415,8 +391,6 @@ div.tocify {
 </footer>
 
 
-</div>
-</div>
 
 </div>
 
@@ -449,32 +423,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
