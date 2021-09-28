@@ -88,6 +88,10 @@ Rチャンクのテスト。まずは通常の。
 head(iris)
 ```
 
+**Epi curve**
+![epi](./data/Picture1.png)
+
+
 次は`knitr::kable()`。
 
 ```{r}
