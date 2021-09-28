@@ -11,7 +11,7 @@
 
 
 
-<title>bootstrap grid test</title>
+<title>COVID-19感染報告者数に基づく簡易実効再生産数推定方法</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -355,26 +355,17 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">My ウェブサイト</a>
+      <a class="navbar-brand" href="index.html">研究結果</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">ホーム</a>
-</li>
-<li>
-  <a href="shumi.html">趣味</a>
+  <a href="index.html">Home</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="id_class_check.html">タグチェック用</a>
-</li>
-<li>
-  <a href="grid_test.html">gridレイアウト用</a>
-</li>
-<li>
-  <a href="css_test.html">cssチェック用</a>
+  <a href="kani_epi.html">研究</a>
 </li>
       </ul>
     </div><!--/.nav-collapse -->
@@ -385,39 +376,19 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">bootstrap grid test</h1>
+<h1 class="title toc-ignore">COVID-19感染報告者数に基づく簡易実効再生産数推定方法</h1>
 
 </div>
 
 
-<div id="グリッドシステム" class="section level2">
-<h2>グリッドシステム</h2>
-<div id="行の割当" class="section level3 row">
-<h3>行の割当</h3>
-<div id="一列目" class="section level4 col-md-4">
-<h4>一列目</h4>
-<p>ひとつめ。</p>
-<pre class="r"><code>plot(1:10)</code></pre>
-<p><img src="grid_test_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-</div>
-<div id="二列目" class="section level4 col-md-4">
-<h4>二列目</h4>
-<p>ふたつめ。</p>
-<pre class="r"><code>plot(5:10)</code></pre>
-<p><img src="grid_test_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-</div>
-<div id="三列目" class="section level4 col-md-4">
-<h4>三列目</h4>
-<p>みっつめ。</p>
-<pre class="r"><code>plot(11:20)</code></pre>
-<p><img src="grid_test_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-</div>
-</div>
+<p>はじめに 実効再生産数（Effective reproduction number, 以下Rt）は「（ある時刻tにおける、一定の対策下での）１人の感染者による２次感染者数」と定義され1、現在流行が拡大期にあるのか収束に向かっているのかを評価する疫学指標の一つとして重要である。2019年末からの新型コロナウイルス感染症（COVID-19）の流行に際しては、世界各国・地域で流行状況を評価する指標として活用されている。しかし厳密なRtの計算には数学に関する知識やプログラミングの技術を必要とすることから、必ずしもそうした技能を有する人材がいるとは限らない現場での活用はすすんでいない。本稿では高度な専門知識を要さずに日ごとのCOVID-19陽性者数を使って簡便にRtの近似値を算出する方法を紹介し、その精度を検討した。</p>
+<p>方法 Rtを推定する時の最も簡潔な考え方は、ある時刻における感染者数が全て世代時間（ある患者が感染してから2次感染を起こすまでの時間）前の感染者からうつされたとするものであり、この考え方を用いるとRtは「新規陽性者数／世代時間）日前の新規陽性者数」で近似することが出来る（補足資料）。実際にドイツのロベルト・コッホ研究所（Robert Koch Institut）では世代時間を4日に固定してこの方法でRtを計算し公表している2。Bonifazi, et alは週末の受診者数・検査数の減少といった新規感染者報告数の週内変動を考慮するために、7日間の移動平均を使うことを推奨しており、Rtを「直近7日間の新規陽性報告者数／（世代時間）日前7日間の新規陽性報告者数」で近似することを提案している3。以下この「直近7日間の新規陽性報告者数／（世代時間）日前7日間の新規陽性報告者数」を簡易Rt推定法と呼ぶ。 当解析では、厚生労働省が公開している日本の報告日別のCOVID-19感染者数のオープンデータ（<a href="https://www.mhlw.go.jp/stf/covid-19/open-data.html）を用いて、簡易Rt推定法で世代時間を3日、4日、5日、6日、7日と変更した時の2021年1月1日から3月28日までの日本のCOVID-19のRtを算出し、Cori" class="uri">https://www.mhlw.go.jp/stf/covid-19/open-data.html）を用いて、簡易Rt推定法で世代時間を3日、4日、5日、6日、7日と変更した時の2021年1月1日から3月28日までの日本のCOVID-19のRtを算出し、Cori</a>, et alの4方法を用いた場合との比較を行った。Cori, et alの方法は世界的にも広く使われているものであり、発症間隔（serial interval）は過去の報告から平均4.8日、標準偏差2.3日と仮定した5。</p>
+<p>結果 日本の2021年1月1日から3月28日までのCOVID-19流行曲線と、Cori, et alの方法、世代時間を3日〜7日とした場合の簡易Rt推定法で算出したRtを図1で示す。 世代時間を5日とした場合の簡易Rt推定法で算出したRtは、Cori, et alの方法によるRtに最も近いトレンドを示し、Rtの差の絶対値も最も小さかった（表1）。</p>
+<div class="figure">
+<img src="data/Picture1.png" alt="" />
+<p class="caption">epi</p>
 </div>
 
-<footer>
-  <p>Copyright &copy; 2017 Kazutan </p>
-</footer>
 
 
 </div>
